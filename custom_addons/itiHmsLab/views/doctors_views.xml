@@ -38,7 +38,7 @@
         </record>
 
 
-        <menuitem name="Doctors" id="doctor_menu" parent="hms_main_menu" action="doctors_action"/>
+        <menuitem name="Doctors" id="doctor_menu" parent="hms_main_menu" action="doctors_action" groups="itiHmsLab.manager_group"/>
 
     </data>
 </odoo>

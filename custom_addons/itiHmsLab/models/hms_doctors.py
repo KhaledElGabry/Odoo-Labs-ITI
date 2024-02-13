@@ -2,6 +2,7 @@ from odoo import models, fields
 
 class Doctor(models.Model):
      _name = 'hms.doctor'
+     _rec_name ='firstName'
      
      firstName = fields.Char()
      lastName = fields.Char()

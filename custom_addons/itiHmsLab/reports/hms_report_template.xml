@@ -1,0 +1,134 @@
+<odoo>
+  <data>
+   <template id="report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <div class="page  my-3 mx-3" >
+                            <div class="row my-3  mx-3" >
+                                <div class="col-4 text-left">
+                                    <span class="align-left text-danger">
+                                        <strong style="color:#09c ; font-size:35px; font-weight:bold; padding-block:15px">Status Report</strong>
+                                    </span>
+                                </div>
+                                 <div class="col-6 text-right">
+                                    <span class="align-right text-danger">
+                                      
+                                       <img src="#" t-att-src="'data:image/png;base64,' + o.image.decode('utf-8')" style="max-height:250px"/>
+
+                                    </span>
+                                </div>
+                            </div>
+                            <table class="table table-borderless" style="height:100px;">
+                                <tr class="text-center d-flex justify-content-between">
+                                    <td class="mr-2 text-center d-flex justify-content-center">
+                                        
+                                        <h3 style="color:#09c ; font-size:19px; font-weight:bold; padding-right:5px" >
+                                        Name:
+                                        
+                                        </h3>
+                                        <span t-field="o.firstName"/>
+                                        <span t-field="o.lastName"/>
+                                    </td>
+                                    <td class="mr-2 text-center d-flex justify-content-center">
+                                       
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;  padding-right:5px" >
+                                         Birth Date:
+                                        
+                                        </h3>
+                                        <span t-field="o.birthDate"/>
+                                    </td>
+                                </tr>
+                                <tr class="text-center d-flex justify-content-between">
+                                    <td class="mr-2 text-center d-flex justify-content-center">
+                                        
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;  padding-right:5px" >
+                                        Age:
+                                        
+                                        </h3>
+                                        <span t-field="o.age"/>
+                                    </td>
+                                    <td class=" mr-2 text-center d-flex justify-content-center">
+                                        
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;  padding-right:5px" >
+                                        Department :
+                                        
+                                        </h3>
+                                        <span t-field="o.department_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr class="text-center d-flex justify-content-between">
+                                    <td class=" mr-2 text-center d-flex justify-content-center">
+                                        
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;   padding-right:5px" >
+                                        Email:
+                                        
+                                        </h3>
+                                        <span t-field="o.email"/>
+                                    </td>
+                                    <td class=" mr-2 text-center d-flex justify-content-center">
+                                        
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;  padding-right:5px" >
+                                        Doctor:
+                                        
+                                        </h3>
+                                        <span t-field="o.doctor_id.firstName"/>
+                                    </td>
+                                </tr>
+                                <tr class="text-center d-flex justify-content-between">
+                                    <td class=" mr-2 text-center d-flex justify-content-center">
+                                       
+                                        <h3 style="color:#09c ; font-size:19px; font-weight:bold;  padding-right:5px" >
+                                                PCR:
+                                        
+                                        </h3>
+                                        <span t-field="o.PCR"/>
+                                    </td>
+                                    <td class=" mr-2 text-center d-flex justify-content-center">
+                                        
+                                           <h3 style="color:#09c ; font-size:19px; font-weight:bold;padding-right:5px" >
+                                            Blood Type:
+                                        
+                                        </h3>
+                                        <span t-field="o.bloodType"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div>
+                                <center>
+                                    <strong style="color:#09c ; font-size:40px; font-weight:bold; padding-block:15px">Log History</strong>
+                                </center>
+                            </div>
+                            <table class="table  table-bordered  table-striped table-hover">
+                                <thead style="display: table-row-group">
+                                    <tr class="border border-white">
+                                        <th class="text-center border border-white"> User</th>
+                                        <th class="text-center border border-white"> Date</th>
+                                        <th class="text-center border border-white"> Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="counter" t-value="0"/>
+                                    <t t-foreach="o.log_ids" t-as="A">
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                        <tr class="border border-white">
+                                            <td class="text-center border border-white">
+                                                <span t-field="A.create_uid" />
+                                            </td>
+                                            <td class="text-center border border-white">
+                                                <span t-field="A.create_date"/>
+                                            </td>
+                                            <td class="text-center border border-white">
+                                                <span t-field="A.description" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
